@@ -1,0 +1,65 @@
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+  }
+  
+  .theme-toggle:focus-visible {
+    outline: 3px solid var(--border-focus);
+    outline-offset: 3px;
+  }
+  
+  .theme-toggle:active {
+    transform: translateY(0);
+  }
+  
+  .theme-toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: iconRotate 0.5s ease;
+  }
+  
+  @keyframes iconRotate {
+    0% {
+      transform: rotate(0deg) scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle-icon {
+      animation: none;
+    }
+  }
+  
+  /* Light mode specific styles */
+  [data-theme="light"] .theme-toggle {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  [data-theme="light"] .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
