@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 const { AxePuppeteer } = require('@axe-core/puppeteer');
 
 // Analyze URL for accessibility issues
-router.post('/url', async (req, res) => {
+router.post('/', async (req, res) => {
   const { url } = req.body;
 
   if (!url) {

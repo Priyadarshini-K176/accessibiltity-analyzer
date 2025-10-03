@@ -58,11 +58,17 @@ const Header = () => {
                     <ThemeToggle />
 
                     <div className="auth-buttons">
-                        <Link to="/login" className="btn-secondary">
+                        <Link
+                            to="/login"
+                            className={`btn-secondary ${isActive('/login') ? 'active' : ''}`}
+                        >
                             <LogIn size={18} aria-hidden="true" />
                             <span>Login</span>
                         </Link>
-                        <Link to="/signup" className="btn-primary">
+                        <Link
+                            to="/signup"
+                            className={`btn-primary ${isActive('/signup') ? 'active' : ''}`}
+                        >
                             <User size={18} aria-hidden="true" />
                             <span>Sign Up</span>
                         </Link>
@@ -82,7 +88,7 @@ const Header = () => {
             </div>
 
             {/* Mobile Menu */}
-          
+
             {isMobileMenuOpen && (
                 <nav id="mobile-menu" className="mobile-menu" aria-label="Mobile navigation">
                     {/* Theme Toggle for Mobile */}
@@ -103,10 +109,18 @@ const Header = () => {
                         </Link>
                     ))}
                     <div className="mobile-auth">
-                        <Link to="/login" className="btn-secondary" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link
+                            to="/login"
+                            className={`btn-secondary ${isActive('/login') ? 'active' : ''}`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
                             <span>Login</span>
                         </Link>
-                        <Link to="/signup" className="btn-primary" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link
+                            to="/signup"
+                            className={`btn-primary ${isActive('/signup') ? 'active' : ''}`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
                             <span>Sign Up</span>
                         </Link>
                     </div>

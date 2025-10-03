@@ -126,55 +126,113 @@
   }
   
   .btn-primary,
-  .btn-secondary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    padding: 12px 24px;
-    min-height: 44px; /* WCAG 2.5.5 */
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all var(--transition-base);
-    border: 2px solid transparent;
-    cursor: pointer;
-  }
-  
-  .btn-primary {
-    background: var(--accent-primary);
-    color: white;
-    border-color: var(--accent-primary);
-  }
-  
-  .btn-primary:hover {
-    background: var(--accent-hover);
-    border-color: var(--accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
-  }
-  
-  .btn-primary:focus-visible {
-    outline: 3px solid var(--border-focus);
-    outline-offset: 3px;
-  }
-  
-  .btn-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border-color: var(--border-secondary);
-  }
-  
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--accent-light);
-  }
-  
-  .btn-secondary:focus-visible {
-    outline: 3px solid var(--border-focus);
-    outline-offset: 3px;
-  }
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 10px 20px;
+  min-height: 44px; /* WCAG 2.5.5 */
+  min-width: auto;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+  border: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary span,
+.btn-secondary span {
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+  text-decoration: none;
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-secondary);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-light);
+  text-decoration: none;
+}
+
+.btn-secondary:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 3px;
+}
+/* Active States for Auth Buttons */
+/* Default state - Signup filled, Login transparent */
+.btn-primary {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-secondary);
+}
+
+/* When Login is active - Login filled, Signup transparent */
+.btn-secondary.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-secondary.active ~ .auth-buttons .btn-primary,
+.btn-secondary.active + .btn-primary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-secondary);
+  box-shadow: none;
+}
+
+/* When Signup is active - keep it filled */
+.btn-primary.active {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Hover states */
+.btn-primary:not(.active):hover,
+.btn-secondary:not(.active):hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-light);
+}
+
+.btn-primary.active:hover,
+.btn-secondary.active:hover {
+  transform: translateY(-1px);
+}
   
   /* Mobile Menu Button */
   .mobile-menu-btn {
@@ -267,7 +325,12 @@
       padding-top: 12px;
       border-top: 1px solid var(--border-primary);
     }
-  
+    
+    .mobile-auth .btn-primary,
+    .mobile-auth .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
     .header-container {
       padding: var(--spacing-md) var(--spacing-lg);
     }

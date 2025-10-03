@@ -1,7 +1,9 @@
 const express = require('express');
+const router=express.Router();
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
+require('dotenv').config();
 
 // Middleware
 app.use(cors());
@@ -11,10 +13,12 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 // Import routes
 const analysisRoutes = require('./routes/analysis');
 const screenshotRoutes = require('./routes/screenshot');
+const aiSuggestionRoutes = require('./routes/aiSuggestion');
 
 // Use routes
 app.use('/api/analysis', analysisRoutes);
 app.use('/api/screenshot', screenshotRoutes);
+app.use('/api/ai-suggestion', aiSuggestionRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

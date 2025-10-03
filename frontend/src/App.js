@@ -5,6 +5,10 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import VisionSimulator from './components/VisionSimulator';
 import './App.css';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Home from './pages/Home';
+import Analyzer from './pages/Analyzer';
 
 function App() {
   return (
@@ -17,51 +21,22 @@ function App() {
           </a>
 
           <Header />
-          
+
           <main id="main-content">
             <Routes>
-              <Route 
-                path="/" 
-                element={
-                  <div style={{padding: '100px 20px', textAlign: 'center', color: 'var(--text-primary)'}}>
-                    <h1>Home Page Coming Soon</h1>
-                    <p>Header and Footer are working!</p>
-                  </div>
-                } 
-              />
-              <Route 
-                path="/analyzer" 
-                element={
-                  <div style={{padding: '100px 20px', textAlign: 'center', color: 'var(--text-primary)'}}>
-                    <h1>Analyzer Page Coming Soon</h1>
-                  </div>
-                } 
-              />
+              <Route path="/" element={<Home />} />
+              <Route path="/analyzer" element={<Analyzer />} />
               <Route path="/simulator" element={<VisionSimulator />} />
-              <Route 
-                path="/dashboard" 
+              <Route
+                path="/dashboard"
                 element={
-                  <div style={{padding: '100px 20px', textAlign: 'center', color: 'var(--text-primary)'}}>
+                  <div style={{ padding: '100px 20px', textAlign: 'center', color: 'var(--text-primary)' }}>
                     <h1>Dashboard Page Coming Soon</h1>
                   </div>
-                } 
+                }
               />
-              <Route 
-                path="/login" 
-                element={
-                  <div style={{padding: '100px 20px', textAlign: 'center', color: 'var(--text-primary)'}}>
-                    <h1>Login Page Coming Soon</h1>
-                  </div>
-                } 
-              />
-              <Route 
-                path="/signup" 
-                element={
-                  <div style={{padding: '100px 20px', textAlign: 'center', color: 'var(--text-primary)'}}>
-                    <h1>Signup Page Coming Soon</h1>
-                  </div>
-                } 
-              />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
             </Routes>
           </main>
 
